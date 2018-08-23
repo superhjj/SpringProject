@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.LikeMapper">
+	 
+	 <resultMap type="com.company.selluv.domain.dto.LikeDTO" id="like">
+	 	<id property="likeCode" column="like_code" jdbcType="VARCHAR" />
+	 	<id property="memberId" column="member_id" jdbcType="VARCHAR" />
+	 	<id property="contentsCode" column="contents_code" jdbcType="VARCHAR" />
+	 </resultMap>
+	 
+	  <insert id="addLike" parameterType="com.company.selluv.domain.dto.LikeDTO">
+			INSERT INTO like_tb VALUES (#{likeCode},#{memberId},#{contentsCode})
+	  </insert>
+	  
+	  <delete id="deleteLike" parameterType="com.company.selluv.domain.dto.LikeDTO">
+	  		delete from like_tb where member_id = #{memberId} AND contents_code = #{contentsCode}
+	  </delete>
+	  
+	  <select id="searchLikeCode" parameterType="com.company.selluv.domain.dto.LikeDTO" resultType="java.lang.String">
+	  		SELECT like_code FROM like_tb WHERE member_id = #{memberId} AND contents_code= #{contentsCode}
+	  </select>
+	  
+	   <select id ="searchLikeMember" parameterType="com.company.selluv.domain.dto.LikeDTO" resultMap="like">
+	  		SELECT * from like_tb where member_id = #{memberId}
+	  </select>
+	  
+	   <select id = "searchLike" parameterType="com.company.selluv.domain.dto.ContentDTO" resultMap="like">
+	  		select * from contents_tb where member_id = #{memberId}
+	  </select>
+	  
+	  <select id = "loadLikeList" resultMap = "like">
+	  		select *from like_tb
+	  </select>
+					 	
+</mapper>
