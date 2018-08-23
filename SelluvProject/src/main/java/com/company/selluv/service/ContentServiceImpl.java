@@ -58,7 +58,7 @@ public class ContentServiceImpl implements ContentService {
 		Timestamp contentsDate=Timestamp.valueOf(LocalDateTime.now());
 		String contentsHidden="N";
 		String contentsVideo="";
-		contentImg=".image/content/"+contentImg;
+		contentImg="/resources/image/content/"+contentImg;
 		
 		ContentDTO contentDTO = new ContentDTO(contentCode, memberId, contentsText, contentImg, "", contentsDate, contentsHidden);
 		StringTokenizer strToken = new StringTokenizer(contentsText, "#");
@@ -87,7 +87,7 @@ public class ContentServiceImpl implements ContentService {
 		Timestamp contentsDate=Timestamp.valueOf(LocalDateTime.now());
 		String contentsHidden="N";
 		String contentsVideo="";
-		contentImg=".image/content/"+contentImg;
+		contentImg="/resources/image/content/"+contentImg;
 		
 		ContentDTO contentDTO = new ContentDTO(contentCode, memberId, "", contentImg, "", contentsDate, contentsHidden);
 		mapper.addContentImg(contentCode, memberId, "", contentImg, contentsVideo,contentsDate, contentsHidden);
