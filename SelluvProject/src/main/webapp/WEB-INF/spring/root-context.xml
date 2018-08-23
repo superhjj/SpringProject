@@ -83,20 +83,6 @@
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<!-- 추가 -->
-	<bean id="formMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.FormMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
-	
-	<bean id="CommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.CommentMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
-	<bean id="contentsDetailViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.ContentsDetailViewMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
 	<!-- 
 	<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.lectopia.lab.persistence.BoardMapper"/>
