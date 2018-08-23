@@ -26,4 +26,6 @@ public interface MemberService {
 	public MemberDTO memberRangeCodeUpdate(String memberId, String pwd, String rangeCode);
 	
 	public MemberDTO memberPwdUpdate(String memberId, String pwd, String newPwd); 
+	
+	public String memberRegistSeller(String wrkrRegNo, String repName);
 }
