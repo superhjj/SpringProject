@@ -20,7 +20,7 @@
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
 		<property name="username" value="hr"></property>
 		<property name="password" value="1111"></property>
-	</bean>	
+	</bean>
 	
 	 <bean id="SessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
@@ -28,8 +28,54 @@
 		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
 	
-	<bean id="contentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.ContentMapper"/>
+	
+	<!-- <bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lectopia.lab.persistence.BoardMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lectopia.lab.persistence.UserMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean> -->
+	
+	<bean id="mainPeedViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.MainPeedViewMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="followerViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.FollowerViewMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="followViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.FollowViewMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="memberPeedFollowViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.MemberPeedFollowViewMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="memberPeedFollowerViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.MemberPeedFollowerViewMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="formMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.FormMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="orderResponseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.OrderResponseMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id="commentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.CommentMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
@@ -43,38 +89,43 @@
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="followMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.FollowMapper"/>
+	<bean id="contentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.ContentMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="mainPeedViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.MainPeedViewMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
-	
-	<bean id="memberPeedViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<bean id = "memberPeedViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.company.selluv.persistence.MemberPeedViewMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="memberPeedContentsCntMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<bean id = "followMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.FollowMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id = "orderMemberViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.OrderMemberViewMapper"/>
+		<property name="sqlSessionFactory" ref="SessionFactory"></property>
+	</bean>
+	
+	<bean id = "memberPeedContentsCntViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.company.selluv.persistence.MemberPeedContentsCntViewMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="memberPeedFollowViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.MemberPeedFollowViewMapper"/>
+	<bean id = "hashtagSearchViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.HashtagSearchViewMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="IsFollowMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.IsFollowMapper"/>
+	<bean id = "contentsDetailViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.ContentsDetailViewMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="memberPeedFollowerViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.MemberPeedFollowerViewMapper"/>
+	<bean id = "likeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.LikeMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
@@ -83,37 +134,19 @@
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<!-- 추가 -->
-	<bean id="formMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.FormMapper"/>
+	<bean id="profileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.ProfileMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
 	
-	<bean id="CommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.CommentMapper"/>
+	<bean id="isFollowMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.company.selluv.persistence.IsFollowMapper"/>
 		<property name="sqlSessionFactory" ref="SessionFactory"></property>
 	</bean>
-	<bean id="contentsDetailViewMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.company.selluv.persistence.ContentsDetailViewMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
-	<!-- 
-	<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.lectopia.lab.persistence.BoardMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
-	
-	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.lectopia.lab.persistence.UserMapper"/>
-		<property name="sqlSessionFactory" ref="SessionFactory"></property>
-	</bean>
-	-->
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="SessionFactory"></constructor-arg>
 	</bean>
-	
-
 	
 	<context:component-scan base-package="com.company.selluv"></context:component-scan>
 </beans>
