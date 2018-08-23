@@ -10,6 +10,8 @@ public interface ProfileMapper {
 	
 	public void deleteProfile(String member_id) throws Exception;
 	
+	public void updateProfile(ProfileDTO pro) throws Exception;
+	
 	public void updateProfileImg(Map<String, String> map) throws Exception;
 	
 	public void updateProfileIntro(Map<String, String> map) throws Exception;

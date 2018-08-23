@@ -167,4 +167,20 @@ public class ProfileServiceImpl implements ProfileService{
 		
 		return profile_id;
 	}
+
+	@Override
+	public ProfileDTO profileUpdate(String memberId, String profileIntro, String profileImg, String profileWebsite) {
+		ProfileDTO update = null;
+		
+		try {
+			update = new ProfileDTO(memberId, profileIntro, profileImg, profileWebsite);
+			profile.updateProfile(update);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return update;
+	}
 }
