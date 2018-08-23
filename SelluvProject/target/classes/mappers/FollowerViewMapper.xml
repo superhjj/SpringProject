@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.FollowerViewMapper">
+	<resultMap type="com.company.selluv.domain.vo.FollowViewVO" id="followerView">
+		<id property="profile_img" column="profile_img" jdbcType="VARCHAR"/>
+		<id property="follow_id" column="follower_id" jdbcType="VARCHAR"/>
+		<id property="member_name" column="member_name" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="searchFollowerView" resultMap="followerView">
+		SELECT profile_img, follower_id, member_name FROM follower_view WHERE follow_id=#{memberId}
+	</select>
+	
+</mapper>
