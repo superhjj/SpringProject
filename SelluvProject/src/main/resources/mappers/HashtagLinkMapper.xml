@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.HashtagLinkMapper">
+	<resultMap type="com.company.selluv.domain.dto.HashtagLinkDTO" id="hashtagLink">
+		<id property="hashtag_link_code" column="hashtag_link_code" jdbcType="VARCHAR"/>
+		<id property="hashtag_code" column="hashtag_code" jdbcType="VARCHAR"/>
+		<id property="contents_code" column="contents_code" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="loadHashtagLinkList" resultMap="hashtagLink">
+		SELECT * FROM hashtag_link_tb
+	</select>
+	
+	<insert id="addHashtagLink">
+		INSERT INTO hashtag_link_tb VALUES (#{hashtagLinkCode}, #{hashtagCode}, #{contentsCode})
+	</insert>
+	
+	<delete id="deleteHashtagLinkByContent">
+		DELETE FROM hashtag_link_tb WHERE contents_code=#{contentsCode}
+	</delete>
+	
+	<delete id="deleteHashtagLink">
+		DELETE FROM hashtag_link_tb WHERE hashtag_code=#{hashtagCode}
+	</delete>
+	
+	<select id="searchHashtagLink" resultType="String">
+		SELECT * FROM hashtag_link_tb WHERE contents_code=#{contentsCode}
+	</select>
+	
+</mapper>

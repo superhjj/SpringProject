@@ -1,0 +1,199 @@
+.container-items {
+	margin: 0 auto;
+	background-color: pink;
+	padding-bottom:20px;
+	max-width:950px;
+	min-widht:800px;
+}
+
+.form-item {
+	height: auto;	
+}
+
+.col-sm-12>a {
+	color: white;
+}
+
+.form-check-input {
+	color: white;
+}
+
+.select {
+	display: block;
+}
+
+
+.form-item-num {
+	margin: 10px 10px;
+}
+
+.curtain {
+	display: none;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 5000;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+ul li {
+	list-style-type: none;
+}
+
+
+
+
+.isopen-area {
+	text-align: right;
+}
+
+.isopen-date-title {
+	margin: 0 0;
+	padding: 0 0;
+	width: 70px;
+}
+
+.item-menu-btn {
+	font-size: 20px;
+	color: pink;
+	text-align: right;
+}
+
+.form-ul-body {
+	margin: 0px 0px;
+	padding: 0 0;
+	font-family: 'Jeju Gothic', cursive;
+}
+
+.form-write-btn{
+	margin: 15px 15px;
+	text-align:center;
+}
+
+.items-style{
+	padding: 5px 15px;
+}
+
+.setting-items {
+	display: none;
+	padding: 5px 0;
+	padding-top: 20px;
+	border: 3px solid pink;
+		max-width:950px;
+	min-widht:800px;
+}
+
+.necessary-style{
+	font-size:10px;
+	text-align:left;
+	color:pink;
+	height:24px;
+}
+
+.item-remove-style{
+	color:white;
+	text-align:right;
+	padding:0 0;
+	margin:0 0;
+	height:24px;
+	display:none;
+}
+
+.item-remove-btn{
+	color:white;
+	background-color:transparent;
+	padding:0 0;
+	border:0px solid transparent;
+}
+
+.item-remove-btn : hover{
+	color:red;	
+}
+
+.date-title{
+	width:80px;
+	padding-right: 0px;
+    padding-left: 0px;
+}
+
+.date-content{
+	padding-right: 15px;
+    padding-left: 15px;
+}
+
+.date-content-input{
+	width:150px;
+	padding-right: 5px;
+    padding-left: 5px;
+}
+
+.form-check{
+	height: 40px;
+}
+
+.form-check-label{
+	height: 34px;
+	padding: 7px 0px;
+}
+
+.item-option-btn{
+	height: 34px;
+	padding: 7px 0px;
+	font-size: 20px;
+	color: pink;
+	text-align: center;
+}
+.formoption-val{
+	padding: 0 0; 
+}
+
+.form-option-btn{
+	padding: 0 0;
+	margin:0 0;
+	text-align: center;
+}
+
+.form-check-label{
+	text-align: center;
+}
+
+.item-menu {
+	text-align: right;
+	font-size: 20px;
+}
+
+.option-button {
+	text-align: right;
+	margin-bottom:10px;
+}
+
+.select-on{
+	display:block;
+}
+
+.select-off{
+	display:none;
+}
+
+.form-check{
+	margin: 5px 5px;
+}
+
+.ss-delete-btn{
+	display: none;
+}
+
+.zip-code-div{
+	padding : 0 0;
+	margin-bottom : 15px;
+}
+
+.item-style-title{
+	
+	font-size: 20px;
+}
+
+.item-style-descript{
+	padding-left : 30px;
+}

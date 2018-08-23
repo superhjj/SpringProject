@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.IsFollowMapper">
+	 
+	 <resultMap type="com.company.selluv.domain.vo.FollowVO" id="isFollow">
+	 	<id property="followCode" column="follow_code" jdbcType="VARCHAR" />
+	 	<id property="followerId" column="follower_id" jdbcType="VARCHAR" />
+	 	<id property="followId" column="follow_id" jdbcType="VARCHAR" />
+	 </resultMap>
+	 
+	  <select id="isSearchFollow" parameterType="com.company.selluv.domain.vo.FollowVO" resultMap="isFollow">
+			SELECT *
+			FROM follow_tb
+			WHERE follower_id = #{followerId} and follow_id = #{followId}
+	  </select>
+	 
+</mapper>

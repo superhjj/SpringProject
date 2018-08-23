@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.selluv.persistence.FormMapper">
+	<resultMap type="com.company.selluv.domain.dto.FormDTO"
+		id="form">
+		<id property="formCode" column="form_code" jdbcType="VARCHAR" />
+		<id property="formTitle" column="form_title" jdbcType="VARCHAR" />
+		<id property="formContent" column="form_content" jdbcType="VARCHAR" />
+		<id property="memberId" column="member_id" jdbcType="VARCHAR" />
+		<id property="period_flag" column="period_flag" />
+		<id property="formStartDate" column="form_start_date" />
+		<id property="formEndDate" column="form_end_date"/>
+	</resultMap>
+	<insert id="formInsert">
+		INSERT INTO form_tb VALUES(#{formCode},#{formTitle},#{formContent},#{memberId},#{period_flag},#{formStartDate},#{formEndDate})
+	</insert>
+	<select id="searchForm" resultMap="form">
+		SELECT * FROM form_tb WHERE form_code=#{formCode} AND member_id=#{memberId}
+	</select>
+	<select id="searchFormList" resultMap="form">
+		SELECT * FROM form_tb WHERE member_id=#{memberId}
+	</select>
+	<select id="loadFormList" resultMap="form">
+		SELECT * FROM form_tb
+	</select>
+	<delete id="formDelte">
+		DELETE FROM form_tb WHERE form_code=#{formCode} AND member_id=#{memberId}
+	</delete>
+</mapper>  
+

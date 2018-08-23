@@ -1,0 +1,181 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+@import url(//fonts.googleapis.com/earlyaccess/kopubbatang.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+	.form-add{
+		font-size:100px;
+	}
+	.userpeed-forms{
+		width:250px;
+		height: 250px;
+		padding: 0;	
+		margin: 10px 5px;
+		border: 3px solid pink;
+		text-align:center;	
+		line-height:250px;
+	}
+	.peed-body{
+		width:1000px;
+		height:auto;
+	}
+	.userpeedbody {
+		width: 930px;
+		height: 100%;
+		background-color: #ffffff;
+		padding: 20px 20px;
+		padding-top: 20px;
+		padding-left:350px;
+		margin: auto;
+		float: center;	
+	}
+	
+	.head {
+		width: 800px;
+		height: 200px;
+		margin-top: 80px;
+	}
+	
+	.profile-img {
+		float: left;
+		width: 250px;
+		height: 150px;
+		padding-left: 70px;
+		padding-right: 30px;
+	}
+	
+	.profile-img:before, .profile-img:after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	
+	.profile-text {
+		float: left;
+		width: 550px;
+		height: 200px;
+	}
+	
+	.btn-userpeed1 {
+		background-color: #fbb3af;
+		height:30px;
+		font-size: 12px;
+	}
+	.btn-userpeed{
+		background-color: rgb(255, 255, 255);
+		height:30px;
+		font-size: 12px;
+	}
+	
+	.profile-1 {
+		width: 550px;
+		height: 50px;
+		padding-top: 10px;
+	}
+	
+	.profile-id {
+		float:left;
+		margin-right: 10px;
+	}
+	
+	.profile-btn {
+		float:left;
+		
+	}
+	
+	.profile-2 {
+		width: 550px;
+		height:30px;
+		font-family: 'Nanum Myeongjo';
+	}
+	
+	.profile-2-2 {
+		float: left;
+		padding-right: 10px;
+		font-size : 18px;
+		font-weight:600;
+		font-family: 'Nanum Gothic Coding';
+	}
+	
+	.user-menu {
+		width: 890px;
+		height: 52px;
+		border-top: 1px solid #f0f0f5;
+		border-bottom: 1px solid #f0f0f5;
+		margin-bottom: 20px;
+	}
+	
+	.c_img{
+		height:200px;
+		width:200px;
+	}
+	.menu-content {
+		width: 445px;
+		height: 52px;
+		text-align: center;
+		float: left;
+	}
+	
+	.menu-form {
+		width: 445px;
+		height: 52px;
+		text-align: center;
+		float: left;
+	}
+	
+	.content {
+		width: 200px;
+		height: 200px;
+	}
+	
+	.mem-id {
+		font-size: 20px;
+		padding: 1px 1px;
+	}
+	
+	.menu:link, .menu:visited {
+		color: #666666;
+		text-decoration: none;
+		font-size: 20px;
+	}
+	
+	.menu:hover {
+		color: black;
+		text-decoration: underline;
+	}
+	
+	.menu:active {
+		color: black;
+		text-decoration: underline;
+	}
+	
+	.userpeed-contents{
+		width: 250px;
+		height: 250px;
+		text-align:center;	
+	}
+	
+	.contents-area-style{
+		height:auto;	
+	}
+	
+	.contents-area-inner {
+		width: 800px;
+	}
+	
+	#contents-btn{
+		color:#262626;
+		font-size:18px;
+	}
+	
+	#form-btn{
+		color:#262626;
+		font-size:18px;
+	}
+	

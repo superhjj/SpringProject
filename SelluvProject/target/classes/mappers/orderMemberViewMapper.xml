@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.OrderMemberViewMapper">
+
+ <resultMap type="com.company.selluv.domain.vo.OrderMemberViewVO" id="orderMemberView">
+	 	<id property="form_title" column="form_title" jdbcType="VARCHAR" />
+	 	<id property="form_code" column="form_code" jdbcType="VARCHAR" />
+	 	<id property="member_id" column="member_id" jdbcType="VARCHAR" />
+	 	<id property="order_date" column="order_date" jdbcType="TIMESTAMP" />
+	 	<id property="profile_img" column="profile_img" jdbcType="VARCHAR" />
+	 </resultMap>
+	 
+	  <select id="searchOrderMemberView" parameterType="com.company.selluv.domain.vo.OrderMemberViewVO" resultMap="orderMemberView">
+		SELECT * 
+		FROM order_member_view 
+		WHERE form_code = #{form_code}
+	 </select>
+</mapper>

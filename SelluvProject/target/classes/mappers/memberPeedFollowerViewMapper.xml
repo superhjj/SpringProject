@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.MemberPeedFollowerViewMapper">
+	<resultMap type="com.company.selluv.domain.vo.MemberPeedFollowerViewVO" id="memberPeedFollowerView">
+		<id property="memberId" column="member_id" jdbcType="VARCHAR"/>
+		<id property="followerCnt" column="follower_cnt" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	<select id="searchFollowerView" resultMap="memberPeedFollowerView">
+		SELECT * FROM member_peed_follower_view WHERE member_id=#{memberId}
+	</select>
+	
+</mapper>

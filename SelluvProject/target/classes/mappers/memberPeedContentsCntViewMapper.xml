@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.MemberPeedContentsCntViewMapper">
+
+ <resultMap type="com.company.selluv.domain.vo.MemberPeedContentsCntView" id="memberPeedContentsCntView">
+	 	<id property="memberId" column="MEMBER_ID" jdbcType="VARCHAR" />
+	 	<id property="memberName" column="MEMBER_NAME" jdbcType="VARCHAR" />
+	 	<id property="cnt" column="CNT" jdbcType="INTEGER" />
+	 	
+	 </resultMap>
+	 
+	  <select id="searchMemberPeedView" parameterType="com.company.selluv.domain.vo.MemberPeedContentsCntView" resultMap="memberPeedContentsCntView">
+		SELECT *
+		FROM MEMBER_PEED_CONTENTSCNT_VIEW 
+		WHERE member_id = #{memberId}
+	 </select>
+</mapper>

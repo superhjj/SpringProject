@@ -1,0 +1,37 @@
+package com.company.selluv.controller;
+
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.company.selluv.service.FollowService;
+
+@Controller	
+public class FollowDeleteController {
+private static final Logger logger = LoggerFactory.getLogger(FollowInsertController.class); 
+	
+	@Autowired
+	private FollowService followService;
+	
+	@RequestMapping(value="/followDelete.do", method=RequestMethod.GET)
+	public String followDelete(@RequestParam("followId") String followId, HttpSession session) {
+		String followerId=(String)session.getAttribute("memberId");
+		
+		if(followService.followDelete(followId, followerId)) {
+			logger.info("ÆÈ·Î¿ì ¼º°ø");
+			
+			return "/userpeed";
+		}
+		else {
+			logger.info("ÆÈ·Î¿ì ½ÇÆÐ");
+		}
+		
+		return null;
+	}
+}

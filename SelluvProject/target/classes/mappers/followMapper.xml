@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.selluv.persistence.FollowMapper">
+	<resultMap id="follow" type="com.company.selluv.domain.dto.FollowDTO">
+		<id property="followNum" column="follow_code" jdbcType="VARCHAR"/>
+		<result property="followId" column="follow_id" jdbcType="VARCHAR"/>
+		<result property="followerId" column="follower_id" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<resultMap id="member" type="com.company.selluv.domain.dto.MemberDTO">
+		<id property="memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="pwd" column="member_pwd" jdbcType="VARCHAR"/>
+		<result property="name" column="member_name" jdbcType="VARCHAR"/>
+		<result property="mail" column="member_mail" jdbcType="VARCHAR"/>
+		<result property="addr" column="member_addr" jdbcType="VARCHAR"/>
+		<result property="rangeCode" column="range_code" jdbcType="VARCHAR"/>
+		<result property="phone" column="member_phone" jdbcType="VARCHAR"/>
+		<result property="levelCode" column="level_code" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<sql id="column">
+		member_id, member_pwd, member_name, member_mail, member_addr, range_code, member_phone, level_code
+	</sql>
+	
+	<insert id="addFollow" parameterType="com.company.selluv.domain.dto.FollowDTO">
+		INSERT INTO follow_tb(follow_code, follow_id, follower_id) VALUES(#{ followNum }, #{ followId }, #{ followerId })
+	</insert>
+	
+	<delete id="deleteFollow" parameterType="com.company.selluv.domain.dto.FollowDTO">
+		DELETE FROM follow_tb WHERE follower_id=#{ followerId } AND follow_id=#{ followId }
+	</delete>
+	
+	<select id="searchFollow" parameterType="String" resultMap="member">
+		SELECT <include refid="column"/> FROM member_tb
+		LEFT OUTER JOIN
+		follow_tb
+		ON (follow_tb.follow_id = member_tb.member_id)
+		WHERE follow_tb.follower_id = #{follower_id} 
+	</select>
+	
+	<select id="searchFollower" parameterType="String" resultMap="member">
+		SELECT <include refid="column"/> FROM member_tb
+		LEFT OUTER JOIN
+		follow_tb
+		ON(follow_tb.follower_id = member_tb.member_id)
+		WHERE follow_tb.follow_id = #{follow_id}
+	</select>
+	
+	<select id="searchFollowAll" resultMap="follow">
+		SELECT * FROM follow_tb
+	</select>
+</mapper>

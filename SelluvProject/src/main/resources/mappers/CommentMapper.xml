@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.CommentMapper">
+	<resultMap type="com.company.selluv.domain.dto.CommentDTO" id="comment">
+		<id property="commentCode" column="comment_code" jdbcType="VARCHAR"/>
+		<id property="memberId" column="member_id" jdbcType="VARCHAR"/>
+		<id property="commentText" column="comment_text" jdbcType="VARCHAR"/>
+		<id property="commentDate" column="comment_date" jdbcType="DATE"/>
+		<id property="contentsCode" column="contents_code" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="loadCommentList" resultMap="comment">
+		SELECT * FROM comment_tb
+	</select>
+	
+	<insert id="addComment">
+		INSERT INTO comment_tb VALUES (#{commentCode}, #{memberId}, #{commentText}, SYSDATE, #{contentsCode})
+	</insert>
+	
+	<delete id="deleteComment">
+		DELETE FROM comment_tb WHERE member_id=#{memberId} AND comment_code=#{commentCode}
+	</delete>
+	
+	<delete id="deleteCommentByAll">
+		DELETE FROM comment_tb WHERE comment_code=#{commentCode} AND contents_code=#{contentsCode} AND member_id=#{memberId}
+	</delete>
+	
+	<delete id="deleteCommentByContents">
+		DELETE FROM comment_tb WHERE contents_code=#{contentsCode}
+	</delete>
+	
+	<select id="searchCommentByContents" resultMap="comment">
+		SELECT * FROM comment_tb WHERE contents_code=#{contentsCode}
+	</select>
+	
+	<select id="searchCommentByComment" resultMap="comment">
+		SELECT * FROM comment_tb WHERE comment_code=#{commentCode} AND member_id=#{memberId}
+	</select>
+	
+</mapper>

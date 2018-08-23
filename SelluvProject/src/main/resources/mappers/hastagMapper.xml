@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.selluv.persistence.HashtagMapper">
+	<resultMap id="hashtag" type="com.company.selluv.domain.dto.HashtagDTO">
+		<id property="hashtag_code" column="hashtag_code" jdbcType="VARCHAR" />
+		<id property="hashtag_name" column="hashtag_name" jdbcType="VARCHAR" />
+	</resultMap>
+	<delete id="hashtagDelete">
+		DELETE FROM hashtag_tb WHERE hashtag_code=#{ hashtag_code}
+	</delete>
+	<select id="hastagSelectByCode" resultMap="hashtag">
+		SELECT * from hashtag_tb WHERE hashtag_code=#{ hashtag_code}
+	</select>
+	<select id="hastagSelectByName" resultMap="hashtag">
+		SELECT * from hashtag_tb WHERE hashtag_name=#{ hashtag_name}
+	</select>
+<!-- 	<select id="hashtagNameSelect" resultMap="hashtag">
+		SELECT * from hashtag_tb WHERE hashtag_
+	</select> -->
+</mapper>

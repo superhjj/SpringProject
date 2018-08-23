@@ -1,0 +1,204 @@
+
+  	.outer{
+  		width:1000px;
+  		min-width:1000px;
+  		height:650px;
+		background-color:#fff
+  	}	
+  	.logo{
+  		float:left;
+  		display : inline-block;
+  		padding-left:40px;
+  		padding-top:120px;
+  		width:990px;
+  		height:640px;
+  	}
+  	.logoImage{
+  		display:inline-block;
+  		width:200px;
+  		height:200px;
+  		margin-left:5px;
+  		margin-top:5px;
+  		
+  	}
+  	.login{
+  		margin-left:20px;
+  	}
+  	.selluvLogo{
+  		width:50px;
+  		height:50px;
+  	}
+  	.form-id{
+  		display:block;
+  		width:900px;
+  		height:80px;
+  		padding-left:200px;
+  		padding-top:150px;
+  	}
+  	.form-pwd{
+  		display:block;
+  		width:900px;
+  		height:80px;
+  		padding-left:200px;
+  		padding-top:50px;
+  	}
+  	
+  	.form-name{
+  		display:block;
+  		width:900px;
+  		height:80px;
+  		padding-left:240px;
+  		padding-top:20px;
+  	}
+  	
+  	.form-mail{
+  		display:block;
+  		width:900px;
+  		height:70px;
+  		padding-left:220px;
+  		padding-top:10px;
+  	}
+  	
+  	
+  	.form-phone{
+  		display:block;
+  		width:900px;
+  		height:80px;
+  		padding-left:200px;
+  	}
+  	.form-website{
+  		display:block;
+  		width:900px;
+  		height:60px;
+  		padding-left:200px;
+  	}
+  	.form-profileIntro{
+  		display:block;
+  		width:900px;
+  		height:50px;
+  		padding-left:175px;
+  	}
+  	
+  	.selluvText{
+  		display: block;
+    	width: 900px;
+    	margin-left: 250px;
+  	}
+  	
+  	.img-circle{
+  		height: 100px;
+   	 	width: 100px;
+    	margin-top: 26px;
+  	}
+  	
+  	.register{
+  		display:inline-block;
+  		margin-left:220px;
+  	}
+  	body {
+	background-color: #f1f1f1;
+	font-family: Helvetica,Arial,Verdana;
+
+}
+	h1 {
+	color: green;
+	text-align: center;
+	}
+	h3{
+		display:inline-block;
+	}
+	.redfamily {
+		color: red;	
+	}
+.search-box,.close-icon,.search-wrapper {
+	position: relative;
+	padding: 10px;
+}
+.search-wrapper {
+	width: 500px;
+	margin: auto;
+	margin-top: 50px;
+}
+.search-box {
+	width: 60%;
+	border: 1px solid #ccc;
+  outline: 0;
+  border-radius: 15px;
+}
+
+.search-box#name1{
+	width:65%;
+}
+
+.search-box#website{
+	width:61%;
+}
+
+.search-box#profileIntro{
+	width:59%;
+}
+
+.search-box#mail{
+	width:63%;
+}
+
+.search-box#phone{
+	width:61%;
+}
+
+
+.search-box:focus {
+	box-shadow: 0 0 15px 5px #b0e0ee;
+	border: 2px solid #bebede;
+}
+label{
+	margin-left:10px;
+}
+.search-box:not(:valid) ~ .close-icon {
+	display: none;
+}
+.profilename{
+	
+}
+
+.btn2 {
+	display:inline-block;
+	position: relative;
+	margin-left:250px;
+	width: var(--btn-w);
+	color: pink;
+	border: .15em solid pink;
+	border-radius: 5em;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 1.0em;
+	line-height: 2em;
+	cursor: pointer;	
+}
+
+.btn2:hover .dot,
+.btn2:focus .dot {
+	animation: atom 2s infinite linear;
+	display: block;
+}
+
+.btn3 {
+	display:inline-block;
+	position: relative;
+	margin-left:50px;
+	width: var(--btn-w);
+	color: #80C1FE;
+	border: .15em solid #80C1FE;
+	border-radius: 5em;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 1.0em;
+	line-height: 2em;
+	cursor: pointer;	
+}
+
+.btn3:hover .dot,
+.btn3:focus .dot {
+	animation: atom 2s infinite linear;
+	display: block;
+}
