@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.selluv.persistence.ProfileMapper">
+	<resultMap id="profile" type="com.company.selluv.domain.dto.ProfileDTO">
+		<id property="profileId" column="profile_id" jdbcType="VARCHAR"/>
+		<result property="memberId" column="member_id" jdbcType="VARCHAR"/>
+		<result property="profileIntro" column="profile_intro" jdbcType="VARCHAR"/>
+		<result property="profileImg" column="profile_img" jdbcType="VARCHAR"/>
+		<result property="profileWebSite" column="profile_website" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<insert id="addProfile" parameterType="com.company.selluv.domain.dto.ProfileDTO">
+		INSERT INTO profile_tb(profile_id, member_id, profile_intro, profile_img, profile_website)
+		VALUES(#{ profileId }, #{ memberId }, #{ profileIntro }, #{profileImg}, #{profileWebSite})		
+	</insert>
+	
+	<delete id="deleteProfile" parameterType="String">
+		DELETE FROM profile_tb WHERE member_id=#{member_id}
+	</delete>
+	
+	<update id="updateProfile" parameterType="com.company.selluv.domain.dto.ProfileDTO">
+		UPDATE profile_tb SET profile_intro=#{ profileIntro } , profile_img=#{profileImg}, profile_website=#{ profileWebSite } where member_id=#{memberId}
+	</update>
+	
+	<update id="updateProfileImg" parameterType="map">
+		UPDATE profile_tb SET profile_img=#{profile_img} WHERE member_id=#{member_id}
+	</update>
+	
+	<update id="updateProfileIntro" parameterType="map">
+		UPDATE profile_tb SET profile_intro=#{profile_intro} WHERE member_id=#{member_id}
+	</update>
+	
+	<update id="updateProfileWebSite" parameterType="map">
+		UPDATE profile_tb SET profile_website=#{profile_website} WHERE member_id=#{member_id}
+	</update>
+	
+	<select id="searchProfileById" parameterType="String" resultMap="profile">
+		SELECT * FROM profile_tb WHERE member_id=#{member_id}
+	</select> 
+	
+	<select id="searchProfileAll" resultMap="profile">
+		SELECT * FROM profile_tb
+	</select>
+</mapper>
