@@ -28,7 +28,7 @@ public class LoginController {
 			,Model model,HttpSession session, RedirectAttributes redirect) {
 		if(session.getAttribute("memberId")!=null){
 			/*HttpUtil.forward(request, response, "/mainPeedView.do");*/
-			logger.info("·Î±×ÀÎ »óÅÂ");
+			logger.info("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			return "redirect:/mainPeedView.do";
 		}
 		
@@ -37,18 +37,18 @@ public class LoginController {
 			/*memberDao.searchMember(memberID, memberPwd)*/	
 			MemberDTO dto = service.memberSearch(memberID, memberPwd);
 			if(dto != null){
-					logger.info("·Î±×ÀÎ ¼º°ø : "+memberID);
+					logger.info("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : "+memberID);
 					session.setAttribute("memberId", memberID);
+					
 					session.setAttribute("levelCode", dto.getLevelCode());
 					redirect.addAttribute("memberId", memberID);
 					path="redirect:/mainPeedView.do";
 				}
 				else{
-					logger.info("·Î±×ÀÎ ½ÇÆÐ");
-					model.addAttribute("error", "¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£¸¦ È®ÀÎÇÏ¿© ÁÖ½Ê½Ã¿À.");
+					logger.info("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+					model.addAttribute("error", "ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.");
 					path="login";
 				}
-					
 		}
 		return path;
 	}
