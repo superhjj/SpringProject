@@ -26,7 +26,7 @@ public class ContentSearchController {
 		List<ContentDTO> contents = contentService.contentByMemberIdSearch(memberId);
 		if(job.equals("searchContentList")) {
 			
-			redirectAttributes.addAttribute("contents", contents);
+			redirectAttributes.addAttribute("contents", contents.toString());
 			redirectAttributes.addAttribute("id", memberId);
 			
 			return "redirect:/userPeedView.do?id="+memberId;

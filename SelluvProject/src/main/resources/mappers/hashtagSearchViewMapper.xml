@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.company.selluv.persistence.HashtagSearchViewMapper">
+
+ <resultMap type="com.company.selluv.domain.vo.HashtagSearchViewVO" id="hashtagSearchView">
+	 	<id property="hashtag_code" column="HASHTAG_CODE" jdbcType="VARCHAR" />
+	 	<id property="hashtag_name" column="HASHTAG_NAME" jdbcType="VARCHAR" />
+	 	<id property="hashtag_link_code" column="HASHTAG_LINK_CODE" jdbcType="VARCHAR" />
+	 	<id property="contents_code" column="CONTENTS_CODE" jdbcType="VARCHAR" />
+	 	<id property="member_id" column="MEMBER_ID" jdbcType="VARCHAR" />
+	 </resultMap>
+	 
+	  <select id="searchHashtagSearchView" parameterType="com.company.selluv.domain.vo.HashtagSearchViewVO" resultMap="hashtagSearchView">
+		SELECT * 
+		FROM hashtag_search_view 
+		WHERE hashtag_name = #{hashtag_name}
+	 </select>
+</mapper>

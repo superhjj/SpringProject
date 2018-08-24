@@ -81,7 +81,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	/*
-	 * memberSearch memberÀÇ ID¿Í pwd¸¦ ¸Å°³º¯¼ö·Î ³Ñ°ÜÁØ´Ù.
+	 * memberSearch memberï¿½ï¿½ IDï¿½ï¿½ pwdï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½.
 	 */
 	@Override
 	public MemberDTO memberSearch(String memberId, String pwd) {
@@ -103,7 +103,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	/*
-	 * memberIdSearch memberÀÇ mail·Î Id¸¦ °Ë»öÇÑ´Ù.
+	 * memberIdSearch memberï¿½ï¿½ mailï¿½ï¿½ Idï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ñ´ï¿½.
 	 */
 	@Override
 	public String memberIdSearch(String mail) {
@@ -120,7 +120,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	/*
-	 * memberPwdSearch memberÀÇ ID¿Í MailÀ» ¼¼ÆÃÇÑ °ªÀ» ¸Å°³º¯¼ö·Î ³Ñ°Ü¾ß ÇÑ´Ù.
+	 * memberPwdSearch memberï¿½ï¿½ IDï¿½ï¿½ Mailï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¾ï¿½ ï¿½Ñ´ï¿½.
 	 */
 	@Override
 	public String memberPwdSearch(String memberId, String mail) {
@@ -225,9 +225,9 @@ public class MemberServiceImpl implements MemberService {
 					+ "=qGpR%2F3OSOaVqnjLcWx0EgDBbBE33L53kQjsZzv9kDfRyiRSuP7xePXTvQIKXfZ2BlSHa1k00Pm5Nl0I4ryJizg%3D%3D"); /*
 																															 * Service
 																															 * Key
-																															 */
+													 */
 			urlBuilder.append("&" + URLEncoder.encode("wrkrRegNo", "UTF-8") + "="
-					+ URLEncoder.encode(wrkrRegNo, "UTF-8")); /* »ç¾÷ÀÚµî·Ï¹øÈ£ */
+					+ URLEncoder.encode(wrkrRegNo, "UTF-8")); /* ï¿½ï¿½ï¿½ï¿½Úµï¿½Ï¹ï¿½È£ */
 			URL url = new URL(urlBuilder.toString());
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
@@ -247,7 +247,7 @@ public class MemberServiceImpl implements MemberService {
 			}
 			rd.close();
 		} catch (Exception e) {
-			System.out.println("member register seller ¿À·ù");
+			System.out.println("member register seller ï¿½ï¿½ï¿½ï¿½");
 			e.printStackTrace();
 
 		} finally {
@@ -256,7 +256,7 @@ public class MemberServiceImpl implements MemberService {
 
 		StringTokenizer st = new StringTokenizer(sb.toString(), "<|>");
 
-		// System.out.println("\nStringTokenizer Ãâ·Â");
+		// System.out.println("\nStringTokenizer ï¿½ï¿½ï¿½");
 		boolean isRepNm = false;
 		String repNm = null;
 		while (st.hasMoreTokens()) {

@@ -60,7 +60,7 @@ public class CommentController {
 		return result;
 	}
 	
-	@RequestMapping(value="/commentDelete.do", method=RequestMethod.POST)
+	@RequestMapping(value="/commentDelete.do", method=RequestMethod.GET)
 	public String commentDelete(@RequestParam("commentCode") String commentCode, @RequestParam("memberId") String memberId, @RequestParam("writer") String writer, @RequestParam("contentCode") String contentCode, HttpSession session) {
 		logger.info("CommentController -> commentDelete.do");
 		

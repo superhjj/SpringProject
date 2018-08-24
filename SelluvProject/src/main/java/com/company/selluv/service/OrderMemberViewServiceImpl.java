@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ import com.company.selluv.persistence.OrderMemberViewMapper;
 
 @Service
 public class OrderMemberViewServiceImpl implements OrderMemberViewService{
+	private Logger logger = LoggerFactory.getLogger(OrderMemberViewServiceImpl.class);
 	
 	@Autowired
 	OrderMemberViewMapper orderMemberViewMapper;
@@ -31,30 +34,30 @@ public class OrderMemberViewServiceImpl implements OrderMemberViewService{
 	@Override	
 	public List<OrderMemberDetailVO> orderMemberDetailSearch(String myId, String form_code, String member_id) {
 		/*
-		 * ÁÖ¹®³¯Â¥¿Í ÁÖ¹®ÀÚ ID, Ç×¸ñ Á¦¸ñÀ» ÀúÀåÇÏ´Â order °´Ã¼
+		 * ï¿½Ö¹ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ID, ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ order ï¿½ï¿½Ã¼
 		 */
 		OrderMemberDetailVO order = new OrderMemberDetailVO();
 		
 		/*
-		 * ÀÀ´ä ¸ñ·ÏÀ» ÀúÀåÇÏ´Â orderMemberList °´Ã¼
+		 * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ orderMemberList ï¿½ï¿½Ã¼
 		 */
 		List<OrderMemberDetailVO> orderMemberDetailList = new ArrayList<OrderMemberDetailVO>();
 		
-		
+		logger.info(myId);
 		
 		OrderMemberDetailVO orderMemberList = new OrderMemberDetailVO();
 	    
 		FileInputStream ifs = null;
 		try {
-			//°æ·Î ÁöÁ¤ sts·Î ¼öÁ¤ÇØ¾ß ÇÔ!!/////////////////////////////////////////////////////////////////////////////////////////////////
-			ifs = new FileInputStream("C://sts_bundle//.metadata//.plugins//org.eclipse.wst.server.core//tmp1//wtpwebapps//Selluv//form//" + myId + "//" + form_code + "//"+ form_code + "_response.txt");
+			//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ stsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½!!/////////////////////////////////////////////////////////////////////////////////////////////////
+			ifs = new FileInputStream("C:\\Users\\HYH\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\Selluv\\resources\\form\\"+ myId +"\\"+ form_code + "\\" + form_code + "_response.txt");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		InputStreamReader isr= null;
 		try {
-			isr = new InputStreamReader(ifs, "UTF-8");
+			isr = new InputStreamReader(ifs, "euc-kr");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,7 +66,7 @@ public class OrderMemberViewServiceImpl implements OrderMemberViewService{
 		StringTokenizer st = null;
 		
 		/*
-		 * ¸Ç Ã¹¹øÂ° ÁÙ ÀÐ¾î¿À±â (ÁÖ¹®¼­ ÀÛ¼ºÀÏÀÚ, ÁÖ¹®ÀÚ id, Ç×¸ñÁ¦¸ñ)
+		 * ï¿½ï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ö¹ï¿½ï¿½ï¿½ id, ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½)
 		 */
 		String line = null;
 		try {
@@ -102,7 +105,7 @@ public class OrderMemberViewServiceImpl implements OrderMemberViewService{
 		content_count -= 2;
 		
 		/*
-		 * ÀÛ¼ºÀÚµéÀÇ ÀÀ´ä³»¿ëÀ» ÀÐ¾î¿À±â
+		 * ï¿½Û¼ï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä³»ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½
 		 */
 		try {
 			while((line = br.readLine()) != null) {

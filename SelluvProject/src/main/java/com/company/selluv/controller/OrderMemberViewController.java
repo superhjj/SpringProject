@@ -20,14 +20,14 @@ public class OrderMemberViewController {
 	@Autowired
 	private OrderMemberViewService service;
 	
-	@RequestMapping(value="/orderSheetSearch.do")
-	public String orderSheetSearch(@RequestParam("form_code")String form_code, Model model) {
+	@RequestMapping(value="/orderMemberView.do")
+	public String orderMemberViewSearch(@RequestParam("form_code")String form_code, Model model) {
 		
 		List<OrderMemberViewVO> list = service.orderMemberViewSearch(form_code);
-		model.addAttribute(list);
+		logger.info("OrderMemberViewVO size : " + list.size());
+		
+		model.addAttribute("list", list);
 		
 		return "orderMemberView";
 	}
-	
-	
 }

@@ -15,7 +15,7 @@ $(document).ready(function() {
 	              alert('통신실패!!');
 	          },
 	          success : function(data){
-	        	  var list=$.parseJSON(data);
+	        	  var list = data;
 	        	  if(list.error=="1"){
 	        		  alert(list.errorMsg);
 	        	  }

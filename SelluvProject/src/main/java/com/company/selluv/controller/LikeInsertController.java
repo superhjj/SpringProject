@@ -15,7 +15,7 @@ public class LikeInsertController {
 	@Autowired
 	LikeService likeService;
 	
-	@RequestMapping(value="likeInsert.do", method=RequestMethod.POST)
+	@RequestMapping(value="likeInsert.do", method=RequestMethod.GET)
 	public String likeInsert(@RequestParam("memberId") String memberId, @RequestParam("contentsCode") String contentCode) {
 		boolean res = likeService.likeAdd(memberId, contentCode);
 		if(res) {

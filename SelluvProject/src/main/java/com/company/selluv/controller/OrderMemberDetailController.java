@@ -29,8 +29,11 @@ public class OrderMemberDetailController {
 			String myId = (String) session.getAttribute("memberId");
 			
 			List<OrderMemberDetailVO> orderMemberDetailList = service.orderMemberDetailSearch(myId, form_code, member_id);
-			model.addAttribute(orderMemberDetailList.get(0));
-			model.addAttribute(orderMemberDetailList.get(1));
+			logger.info("0 : " + orderMemberDetailList.get(0).toString());
+			logger.info("1 : " + orderMemberDetailList.get(1).toString());
+			
+			model.addAttribute("orderTitle", orderMemberDetailList.get(0));
+			model.addAttribute("order", orderMemberDetailList.get(1));
 			
 			
 		return "orderMemberDetail";

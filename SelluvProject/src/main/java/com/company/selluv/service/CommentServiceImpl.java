@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.company.selluv.domain.dto.CommentDTO;
 import com.company.selluv.persistence.CommentMapper;
+import com.company.selluv.persistence.HashtagMapper;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -50,7 +51,7 @@ public class CommentServiceImpl implements CommentService {
 		loadCommentList();
 		
 		String commentCode = generateCommentCode();
-		logger.info("commentCode °ª : " + commentCode);
+		logger.info("commentCode ï¿½ï¿½ : " + commentCode);
 		commentMapper.addComment(commentCode, memberId, commentText, contentsCode);
 		Timestamp commentDate = Timestamp.valueOf(LocalDateTime.now());
 		CommentDTO commentDTO = new CommentDTO(commentCode, memberId, commentText, commentDate, contentsCode);

@@ -22,12 +22,11 @@
 		DELETE FROM hashtag_link_tb WHERE contents_code=#{contentsCode}
 	</delete>
 	
-	<delete id="deleteHashtagLink">
+	<delete id="deleteHashtagLink" parameterType="String">
 		DELETE FROM hashtag_link_tb WHERE hashtag_code=#{hashtagCode}
 	</delete>
 	
 	<select id="searchHashtagLink" resultType="String">
 		SELECT * FROM hashtag_link_tb WHERE contents_code=#{contentsCode}
 	</select>
-	
 </mapper>

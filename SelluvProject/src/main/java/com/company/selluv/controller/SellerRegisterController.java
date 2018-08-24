@@ -22,34 +22,42 @@ public class SellerRegisterController {
 	@Autowired
 	MemberService service;
 	
+	@RequestMapping(value="/sellerRegister.do", method=RequestMethod.GET)
+	public String sellerRegisterGET() {
+		return "businessRegister";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="/sellerRegister.do", method=RequestMethod.POST, produces="application/json; charset=UTF-8")
 	public JSONObject sellerRegister(HttpSession session, @RequestParam("sellerRegisterNum")String wrkrRegNo, @RequestParam("repName")String repName) {
 		String memberId = (String)session.getAttribute("memberId");
 		JSONObject result = new JSONObject();
 		
+		logger.info(repName);
+		logger.info(wrkrRegNo);
 		
 		MemberDTO memberDTO=service.memberSearch(memberId, 0);
     	if(!memberDTO.getName().equals(repName)){
-    		logger.info("error : È¸¿øÀÇ ½Ç¸í°ú ÀÏÄ¡ x");
+    		logger.info("error : ì´ë¦„ ì—ëŸ¬");
     		
     		result.put("error", "1");
-    		result.put("errorMsg", "È¸¿øÀÇ ½Ç¸í°ú ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");     
+    		result.put("errorMsg", "È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");     
     		
     		return result;
     	}
     	
     	String repNm = service.memberRegistSeller(wrkrRegNo, repName);
+    	logger.info(repNm);
 		
         if(wrkrRegNo!=null&&repNm!=null&&repNm.equals(repName)){
-        	logger.info("");
+        	logger.info("ì„±ê³µ");
         	memberDTO.setLevelCode("SL");
         	service.memberUpdate(memberDTO);
         	result.put("repNm", repNm);
         }
         else{
         	result.put("error", "2");
-        	result.put("errorMsg", "À¯È¿ÇÏÁö ¾Ê´Â »ç¾÷ÀÚ ¹øÈ£ÀÔ´Ï´Ù.");
+        	result.put("errorMsg", "ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Ô´Ï´ï¿½.");
         }
 		return result;
 	}

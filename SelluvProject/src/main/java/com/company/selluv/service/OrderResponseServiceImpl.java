@@ -35,7 +35,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			orderResponseMapper.deleteOrderResponseList(formResponseCode);
 			return true;
 		} catch (Exception e) {
-			logger.error("orderResponseListDelete ¿¡·¯");
+			logger.error("orderResponseListDelete ï¿½ï¿½ï¿½ï¿½");
 		}
 		return false;
 	}
@@ -61,7 +61,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			FormResponseDTO dto = orderResponseMapper.searchOrderResponseCode(formResponseCode);
 			return dto;
 		} catch (Exception e) {
-			logger.error("formResponseCode·Î orderResponseSearch ¿¡·¯");
+			logger.error("formResponseCodeï¿½ï¿½ orderResponseSearch ï¿½ï¿½ï¿½ï¿½");
 		}
 		return null;
 	}
@@ -73,7 +73,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			List<FormResponseDTO> list = orderResponseMapper.searchOrderResponseForm(formCode);
 			return list;
 		} catch (Exception e) {
-			logger.error("formCode·Î orderResponseSearch ¿¡·¯");
+			logger.error("formCodeï¿½ï¿½ orderResponseSearch ï¿½ï¿½ï¿½ï¿½");
 		}
 		return null;
 	}
@@ -85,7 +85,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			orderResponseMapper.deleteOrderMemberByMember(memberId);
 			return true;
 		} catch (Exception e) {
-			logger.error("memberId·Î orderMemberDelete ¿¡·¯");
+			logger.error("memberIdï¿½ï¿½ orderMemberDelete ï¿½ï¿½ï¿½ï¿½");
 		}
 		return false;
 	}
@@ -96,7 +96,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			orderResponseMapper.deleteOrderMemberByCode(orderMemberCode);
 			return true;
 		} catch (Exception e) {
-			logger.error("orderMemberCode·Î orderMemberDelete ¿¡·¯");
+			logger.error("orderMemberCodeï¿½ï¿½ orderMemberDelete ï¿½ï¿½ï¿½ï¿½");
 		}
 		return false;
 	}
@@ -108,7 +108,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			List<OrderMemberDTO> list  = orderResponseMapper.searchOrderMemberByMember(memberId);
 			return list;
 		} catch (Exception e) {
-			logger.error("memberId·Î orderMemberSearch ¿¡·¯");
+			logger.error("memberIdï¿½ï¿½ orderMemberSearch ï¿½ï¿½ï¿½ï¿½");
 		}
 		return null;
 	}
@@ -120,7 +120,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			OrderMemberDTO dto  = orderResponseMapper.searchOrderMemberByCode(orderMemberCode);
 			return dto;
 		} catch (Exception e) {
-			logger.error("memberId·Î orderMemberSearch ¿¡·¯");
+			logger.error("memberIdï¿½ï¿½ orderMemberSearch ï¿½ï¿½ï¿½ï¿½");
 		}
 		return null;
 	}
@@ -203,7 +203,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 		}
 		String response = sb.toString();
 		
-		String filePath = "C:\\Users\\user\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Selluv\\resources\\form\\"+peedId+"\\"+formCode;
+		String filePath = "C:\\Users\\HYH\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\Selluv\\resources\\form\\"+ peedId +"\\"+ formCode + "_response.txt";
 		try {
 			File file = new File(filePath);
 			File file2 = new File(filePath+"\\"+formCode+"_response.txt");
@@ -217,7 +217,7 @@ public class OrderResponseServiceImpl implements OrderResponseService {
 			if(!file2.exists()) {
 				FileOutputStream output = new FileOutputStream(filePath+"\\"+formCode+"_response.txt");
 				bw = new BufferedWriter(new OutputStreamWriter(output, "UTF-8"));
-				bw.write("ÁÖ¹®¼­ÀÛ¼º³¯Â¥/ÁÖ¹®ÀÚID/"+title);
+				bw.write("ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½Â¥/ï¿½Ö¹ï¿½ï¿½ï¿½ID/"+title);
 				bw.newLine();
 			}
 			else {

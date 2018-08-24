@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
- <link rel="stylesheet" href="css/menubar.css">
+ <link rel="stylesheet" href="/resources/css/menubar.css">
  
-<script src="js/menubar.js"></script>
-<script src="js/sellerRegister.js"></script>
+<script src="/resources/js/menubar.js"></script>
+<script src="/resources/js/sellerRegister.js"></script>
 <title>Insert title here</title>
 </head>
 <body>

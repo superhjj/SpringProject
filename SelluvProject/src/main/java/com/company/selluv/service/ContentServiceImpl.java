@@ -71,12 +71,9 @@ public class ContentServiceImpl implements ContentService {
 		
 		data.remove(0);
 		
-		String[] hashtags = new String[data.size()];
-		
-		for(int i=0; i<data.size(); i++){
-			hashtags[i] = data.get(i);
-		}
 		mapper.addContentImg(contentCode, memberId, contentsText, contentImg, contentsVideo,contentsDate, contentsHidden);
+		hashtagService.addHashtags(contentCode, data);
+		
 		return contentDTO;
 	}
 	
@@ -174,11 +171,14 @@ public class ContentServiceImpl implements ContentService {
 		if(contentDTO == null)
 			return false;
 		
+		/*List<String> list=hashtagLinkService.hashtagLinkSearch(contentCode);
 		
-		List<String> list=hashtagLinkService.hashtagLinkSearch(contentCode);
 		for(int i=0;i<list.size();i++) {
+			logger.info("해시태그 삭제");
 			hashtagService.deleteHashtag(list.get(i));
-		}
+		}*/
+		
+		logger.info("게시글 삭제");
 		
 		mapper.deleteContent(contentCode, memberId);
 		

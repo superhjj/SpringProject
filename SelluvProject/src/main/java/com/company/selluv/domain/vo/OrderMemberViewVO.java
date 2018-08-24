@@ -7,6 +7,9 @@ public class OrderMemberViewVO {
 	private String order_date;
 	private String profile_img;
 	
+	public OrderMemberViewVO() {	
+	}
+	
 	public OrderMemberViewVO(String form_title, String form_code, String member_id,
 			String order_date, String profile_img) {
 		super();

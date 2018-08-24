@@ -9,16 +9,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/NewFile.css">
+<link rel="stylesheet" href="/resources/css/NewFile.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="resources/css/menubar.css">
-<link rel="stylesheet" href="resources/css/userpeed.css">
-<link rel="stylesheet" href="resources/css/addcontents.css"> 
+<link rel="stylesheet" href="/resources/css/menubar.css">
+<link rel="stylesheet" href="/resources/css/userpeed.css">
+<link rel="stylesheet" href="/resources/css/addcontents.css"> 
 
-<script src="resources/js/userpeed.js"></script>
+<script src="/resources/js/userpeed.js"></script>
 
 <script>
 function followFunc() {
@@ -44,7 +44,7 @@ function followerFunc() {
 				<input type="hidden" id="myId" value="${ sessionScope.memberId }">
 	<div class="dataArea"></div>
 	<jsp:include page="menu.jsp"></jsp:include>
-	<link rel="stylesheet" href="css/userpeed.css">
+	<link rel="stylesheet" href="/resources/css/userpeed.css">
 	<div class="body-container peed-body" name="body-container">
 		<div class="col-md-12 userpeedbody">
 	<div class="body-container" name="body-container">
@@ -65,7 +65,7 @@ function followerFunc() {
 				<input type="hidden" id="memberId" value="${requestScope.id }">
 				
 					<div class="profile-id">
-						<label class="mem-id">${memberInfo.memberId }</label>
+						<label id="mem-id" class="mem-id">${memberInfo.memberId }</label>
 					</div>
 					<div class="profile-btn">
 											
