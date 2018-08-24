@@ -8,21 +8,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/NewFile.css">
+<link rel="stylesheet" href="/resoruces/css/NewFile.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-<link rel="stylesheet" href="resources/css/menubar.css">
-<link rel="stylesheet" href="resources/css/detailContents.css">
-<link rel="stylesheet" href="resources/css/mainpeed.css">
-<link rel="stylesheet" href="resources/css/addcontents.css">
-<link rel="stylesheet" href="resources/css/NewFile.css">
+<link rel="stylesheet" href="/resources/css/menubar.css">
+<link rel="stylesheet" href="/resources/css/detailContents.css">
+<link rel="stylesheet" href="/resources/css/mainpeed.css">
+<link rel="stylesheet" href="/resources/css/addcontents.css">
+<link rel="stylesheet" href="/resources/css/NewFile.css">
 
 
-<script src="resources/js/mainpeed.js"></script>
-<script src="resources/js/menubar.js"></script>
+<script src="/resources/js/mainpeed.js"></script>
+<script src="/resources/js/menubar.js"></script>
 
 </head>
 <body>
@@ -53,16 +53,16 @@
 					<div class="contentMenu">
 					<div>
 						<span class="${list.contentCode}-tooltiptext" style="display:none;width:100px;background-color: #ff0055;color: #fff;text-align: center;border-radius: 6px; padding: 5px 0;position: absolute;z-index: 1; bottom: 20%;left:17.5%;margin-left: -60px;">좋아용~</span>
-							<img src="./image/like.png" id="like" class="${list.contentCode}-like"  style="cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
+							<img src="/resources/image/like.png" id="like" class="${list.contentCode}-like"  style="cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
 						</div>
 						<div>
-							<img src="./image/liked.png" id="liked" class="${list.contentCode}-liked" style="display:none;cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
+							<img src="/resources/image/liked.png" id="liked" class="${list.contentCode}-liked" style="display:none;cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
 						</div>					
 					<div>
-						<img src="./image/comment.png"  style="width:50px;height:50px;float:left;margin-top:5px;margin-right:60px">
+						<img src="/resources/image/comment.png"  style="width:50px;height:50px;float:left;margin-top:5px;margin-right:60px">
 					</div>
 					<div>
-						<img src="./image/retweet.png" style="width:60px;height:60px">
+						<img src="/resources/image/retweet.png" style="width:60px;height:60px">
 						</div>
 				</div>
 				</div>
@@ -90,16 +90,16 @@
 					<div class="contentMenu">
 					<div>
 						<span class="${list.contentCode}-tooltiptext" style="display:none;width:100px;background-color: #ff0055;color: #fff;text-align: center;border-radius: 6px; padding: 5px 0;position: absolute;z-index: 1; bottom: 20%;left:17.5%;margin-left: -60px;">좋아용~</span>
-						<img src="./image/like.png" id="like" class="${list.contentCode}-like"  style="cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
+						<img src="/resources/image/like.png" id="like" class="${list.contentCode}-like"  style="cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
 					</div>
 					<div>
-						<img src="./image/liked.png" id="liked" class="${list.contentCode}-liked" style="display:none;cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
+						<img src="/resources/image/liked.png" id="liked" class="${list.contentCode}-liked" style="display:none;cursor:pointer;width:50px;height:50px;float:left;margin-top:5px;margin-left:35px;margin-right:60px">
 					</div>					
 					<div>
-						<img src="./image/comment.png"  style="width:50px;height:50px;float:left;margin-top:5px;margin-right:60px">
+						<img src="/resources/image/comment.png"  style="width:50px;height:50px;float:left;margin-top:5px;margin-right:60px">
 					</div>
 					<div>
-						<img src="./image/retweet.png" style="width:60px;height:60px">
+						<img src="/resources/image/retweet.png" style="width:60px;height:60px">
 						</div>
 				</div>
 				</div>

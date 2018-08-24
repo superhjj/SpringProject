@@ -44,7 +44,7 @@
 	
 	<update id="updateMember" parameterType="com.company.selluv.domain.dto.MemberDTO">
 		UPDATE member_tb SET member_pwd=#{pwd}, member_name=#{name}, member_mail=#{mail}, member_addr=#{addr}, range_code=#{rangeCode}, member_phone=#{phone}, level_code=#{levelCode}	
-		WHERE member_id=#{member_id}
+		WHERE member_id=#{memberId}
 	</update>
 	
 	<update id="updateMemberLevelCode" parameterType="map">

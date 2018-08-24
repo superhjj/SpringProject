@@ -29,7 +29,7 @@
 				
 				for(var i = 0; i < comm.length; i++){
 					str += '<li><div><div>' + comm[i].memberId + '</div></div><div><div>' + comm[i].commentText + '</div></div>' + 
-					'<form id=\"comment-form-' + i + '\" action=\"../commentDelete.do\" method=\"POST\"> <input id=\"member-' + i + '\" name=\"memberId\" type=\"hidden\" value=\"'+ comm[i].memberId + '\">' +
+					'<form id=\"comment-form-' + i + '\" action=\"../commentDelete.do\" method=\"GET\"> <input id=\"member-' + i + '\" name=\"memberId\" type=\"hidden\" value=\"'+ comm[i].memberId + '\">' +
 					'<input id=\"comment-' + i + '\" name=\"commentCode\" type=\"hidden\" value=\"' + comm[i].commentCode + '\">' +
 					'<input id=\"content-'+ i + '\" name=\"contentCode\" type=\"hidden\" value=\"' + document.getElementById('contentCode').value + '\">' + 
 					'<input id=\"writer-' + i + '\" name=\"writer\" type=\"hidden\" value=\"' + document.getElementById('writer').value + '\">' + 
@@ -67,7 +67,7 @@
 					console.log('댓글의 개수 : ' + size);
 					
 					str += '<li><div><div>' + comm.memberId + '</div></div><div><div>' + comm.commentText + '</div></div>' + 
-					'<form id=\"comment-form-' + (size + 1) + '\" action=\"../commentDelete.do\" method=\"POST\"> <input id=\"member-' + (size + 1) + '\" name=\"memberId\" type=\"hidden\" value=\"'+ comm.memberId + '\">' +
+					'<form id=\"comment-form-' + (size + 1) + '\" action=\"../commentDelete.do\" method=\"GET\"> <input id=\"member-' + (size + 1) + '\" name=\"memberId\" type=\"hidden\" value=\"'+ comm.memberId + '\">' +
 					'<input id=\"comment-' + (size + 1) + '\" name=\"commentCode\" type=\"hidden\" value=\"' + comm.commentCode + '\">' +
 					'<input id=\"content-'+ (size + 1) + '\" name=\"contentCode\" type=\"hidden\" value=\"' + document.getElementById('contentCode').value + '\">' + 
 					'<input id=\"writer-' + (size + 1) + '\" name=\"writer\" type=\"hidden\" value=\"' + document.getElementById('writer').value + '\">' + 
@@ -84,6 +84,7 @@
 			}
 			comment.send(null);
 			$('#inputComment').val('');
+			loadComment();
 		});
 		
 		$('#comment-load-btn').click(function(){

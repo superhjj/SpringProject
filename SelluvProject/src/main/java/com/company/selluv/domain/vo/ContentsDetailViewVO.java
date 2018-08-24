@@ -8,6 +8,10 @@ public class ContentsDetailViewVO {
 	private String likeCnt;
 	private String contentCode;
 	
+	public ContentsDetailViewVO() {
+		
+	}
+	
 	public ContentsDetailViewVO(String profileImg, String memberId, String contentsImg, String contentsText,
 			String likeCnt, String contentCode) {
 		super();

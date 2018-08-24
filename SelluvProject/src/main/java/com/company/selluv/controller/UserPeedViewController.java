@@ -91,7 +91,7 @@ public class UserPeedViewController {
 		String followerId=(String)session.getAttribute("memberId");
 		List<ContentDTO> contents = contentService.contentByMemberIdSearch(memberId);
 		if(contents==null||contents.size()==0)
-			model.addAttribute("contentsCount", 0);
+		model.addAttribute("contentsCount", 0);
 		model.addAttribute("contents", contents);
 		model.addAttribute("id", memberId);
 		

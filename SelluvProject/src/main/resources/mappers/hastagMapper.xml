@@ -5,16 +5,29 @@
 		<id property="hashtag_code" column="hashtag_code" jdbcType="VARCHAR" />
 		<id property="hashtag_name" column="hashtag_name" jdbcType="VARCHAR" />
 	</resultMap>
+	
+	<insert id="hashtagInsert" parameterType="com.company.selluv.domain.dto.HashtagDTO">
+		INSERT INTO hashtag_tb VALUES(#{ hashtag_code }, #{ hashtag_name })
+	</insert>
+	
+	<insert id="hashtagsInsert" parameterType="list">
+		INSERT INTO hashtag_tb VALUES 
+		<foreach collection="list" item="item" open="(" close=")" separator=", ">
+			item.hashtag_code, item.hashtag_name
+		</foreach>
+	</insert>
+	
+	<select id="hashtagSearchAll" resultMap="hashtag">
+		SELECT * FROM hashtag_tb
+	</select>
+	
 	<delete id="hashtagDelete">
-		DELETE FROM hashtag_tb WHERE hashtag_code=#{ hashtag_code}
+		DELETE FROM hashtag_tb WHERE hashtag_code=#{hashtag_code}
 	</delete>
 	<select id="hastagSelectByCode" resultMap="hashtag">
-		SELECT * from hashtag_tb WHERE hashtag_code=#{ hashtag_code}
+		SELECT * from hashtag_tb WHERE hashtag_code=#{hashtag_code}
 	</select>
 	<select id="hastagSelectByName" resultMap="hashtag">
-		SELECT * from hashtag_tb WHERE hashtag_name=#{ hashtag_name}
+		SELECT * from hashtag_tb WHERE hashtag_name=#{hashtag_name}
 	</select>
-<!-- 	<select id="hashtagNameSelect" resultMap="hashtag">
-		SELECT * from hashtag_tb WHERE hashtag_
-	</select> -->
 </mapper>

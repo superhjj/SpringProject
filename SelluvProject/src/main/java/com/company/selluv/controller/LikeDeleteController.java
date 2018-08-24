@@ -14,7 +14,7 @@ public class LikeDeleteController {
 	@Autowired
 	LikeService likeService;
 	
-	@RequestMapping(value="likeDelete.do", method=RequestMethod.POST)
+	@RequestMapping(value="likeDelete.do", method=RequestMethod.GET)
 	public String likeDelete(@RequestParam("memberId") String memberId, @RequestParam("contentsCode") String contentCode) {
 		boolean res = likeService.likeDelete(memberId, contentCode);
 		if(res) {

@@ -21,7 +21,11 @@ public class LoginController {
 
 	@Autowired
 	private MemberService service;
-
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String loginGet() {
+		return "/login";
+	}
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public String login(@RequestParam("id")String memberID,@RequestParam("pwd")String memberPwd

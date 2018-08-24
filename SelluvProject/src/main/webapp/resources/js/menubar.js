@@ -93,10 +93,10 @@
 								});
 					
 						//$('#plus_btn').removeAttr("href");
-						$('#plus_btn').click(function(event){
+						$('#plus_btn1').click(function(event){
 							$.ajax({
 						        type : "GET",
-						        url : "addcontents.jsp",
+						        url : "/addcontents",
 						        dataType : "html",
 						        error : function(){
 						            alert('통신실패!!');
@@ -106,10 +106,11 @@
 						        }
 						    });					
 						})
+						
 						$('#dropdown_addcontents').click(function(){
 							$.ajax({
 						        type : "GET",
-						        url : "addcontents.jsp",
+						        url : "/addcontents",
 						        dataType : "html",
 						        error : function(){
 						            alert('통신실패!!');

@@ -15,21 +15,21 @@ public class ContentsDeleteController {
 	@Autowired 
 	ContentService contentsService;
 	
-	@RequestMapping(value="/ContentsDelete.do", method=RequestMethod.GET)
+	@RequestMapping(value="/contentsDelete.do", method=RequestMethod.GET)
 	public String contentsDelete(HttpSession session, @RequestParam("memberId") String memberId, @RequestParam("contentCode") String contentCode) {
 		String sessionId=(String)session.getAttribute("memberId");
 		String levelCode=(String)session.getAttribute("levelCode");
-		//°ü¸®ÀÚÀÌ¸é
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 		if(levelCode.equals("AD")) {
 			contentsService.contentDelete(contentCode, memberId);
 		}
-		//°ü¸®ÀÚ°¡ ¾Æ´Ï¸é
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Ï¸ï¿½
 		else {
 			if(sessionId.equals(memberId)) {
 				contentsService.contentDelete(contentCode, memberId);
 			}
 		}
 		
-		return "/userpeed";
+		return "redirect:/userPeedView.do?id=" + memberId;
 	}
 }

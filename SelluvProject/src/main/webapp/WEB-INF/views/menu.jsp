@@ -6,13 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/NewFile.css">
+<link rel="stylesheet" href="/resources/css/NewFile.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="js/menubar.js"></script>
+<script src="/resources/js/menubar.js"></script>
 
 <title>Insert title here</title>
 </head>
@@ -28,7 +28,7 @@
 						class="icon-bar"></span>
 				</button>
 				
-				<img src="image/selluv_logo.png" id="brand" class="navbar-brand"><a href="mainPeedView.do"></a>
+				<img src="/resources/image/selluv_logo.png" id="brand" class="navbar-brand"><a href="mainPeedView.do"></a>
 			</div>
 
 			<div id="navbar" class="collapse navbar-collapse">
@@ -62,7 +62,7 @@
 							class="glyphicon glyphicon-option-vertical"></span></a>
 						<ul class="dropdown-menu" role="menu" style="display: none;">
 							<li><a href="follow.jsp">follow</a></li>
-							<li><a href=businessRegister.jsp id="dropdown_addcontents">register seller</a></li>
+							<li><a href="sellerRegister.do" id="dropdown_addcontents">register seller</a></li>
 							<li><a href="orderResponseDetail.html">order response</a></li>
 							<li><a href="orderResponseDetail.html">profile update</a></li>
 							<li class="divider"></li>

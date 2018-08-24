@@ -51,23 +51,18 @@ public class HashtagLinkServiceImpl implements HashtagLinkService {
 
 	@Override
 	public boolean hashtagLinkDeleteByContent(String contentsCode) {
-
 		hashtagLinkMapper.deleteHashtagLinkByContent(contentsCode);
-		
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean hashtagLinkDelete(String hashtagCode) {
-		
 		hashtagLinkMapper.deleteHashtagLink(hashtagCode);
-		
-		return false;
+		return true;
 	}
 
 	@Override
 	public List<String> hashtagLinkSearch(String contentsCode) {
-
 		return hashtagLinkMapper.searchHashtagLink(contentsCode);
 	}
 

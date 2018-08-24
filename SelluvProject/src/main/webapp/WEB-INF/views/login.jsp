@@ -10,10 +10,10 @@
 	src="https://ajax	.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/registerButton.css">
-<link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/menubar.css">
-<link rel="stylesheet" href="css/NewFile.css">
+<link rel="stylesheet" href="/resources/css/registerButton.css">
+<link rel="stylesheet" href="/resources/css/login.css">
+<link rel="stylesheet" href="/resources/css/menubar.css">
+<link rel="stylesheet" href="/resources/css/NewFile.css">
 
 </head>
 <script>
@@ -26,13 +26,13 @@
 	<div class="outer">
 		<div class="logo">
 			<div class="logoImage">
-				<img src="image/selluv.png">
+				<img src="/resources/image/selluv.png">
 			</div>
 		</div>
 		
 			<div class="login">
 				<div class="selluvText">
-					<img src="image/logo.png" class="title">
+					<img src="/resources/image/logo.png" class="title">
 				</div>
 				<div class="form-id">
 					<input type="text" class="search-box" id="id" name="id"

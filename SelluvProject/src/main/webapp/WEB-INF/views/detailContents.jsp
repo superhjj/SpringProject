@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/NewFile.css">
+<link rel="stylesheet" href="/resources/css/NewFile.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="js/detailContents.js?v=<%=System.currentTimeMillis() %>"></script>
+<script src="/resources/js/detailContents.js?v=<%=System.currentTimeMillis() %>"></script>
 
-<link rel="stylesheet" href="css/detailContents.css?v=<%=System.currentTimeMillis() %>">
-<link rel="stylesheet" href="css/detailContents.css">
+<link rel="stylesheet" href="/resources/css/detailContents.css?v=<%=System.currentTimeMillis() %>">
+<link rel="stylesheet" href="/resources/css/detailContents.css">
 </head>
 
 <body>
@@ -21,6 +21,7 @@
 <!--  
 <input type="hidden" id="memberId" class="memberId" name="memberId" value="${sessionScope.memberId}"/> <!-- session의 memberId를 value로 넣어줘야 한다. -->
 	<input type="hidden" id="contentCode" class="contentCode" name="contentCode" value="${contentsDetailView.contentCode }"/> <!-- 게시글 번호를 value에 넣어줘야 한다. -->
+	<input type="hidden" id="writer" name="writer" value="${ contentsDetailView.memberId }">
 	<div class="detailcontainer">
 	<div class="curtain">
 	<div class="detailContents">
@@ -32,7 +33,7 @@
 					<img src="${contentsDetailView.profileImg }" class="img-circle" alt="Cinque Terre">
 					<div class="userId1">${contentsDetailView.memberId}</div>
 					<c:if test="${contentsDetailView.memberId eq sessionScope.memberId }">
-						<img src="./image/delete.png" id="deleteContent-btn" class="setting">
+						<img src="/resources/image/delete.png" id="deleteContent-btn" class="setting">
 					</c:if>
 				</div>
 			</div>
@@ -47,8 +48,7 @@
 				</div>
 				</div>
 				<div class="comment">
-					<ul id = "commentList" class="commentList">
-					</ul>
+					<ul id = "commentList" class="commentList"></ul>
 			</div>
 			</div>
 	
@@ -60,13 +60,13 @@
 								<c:choose>
 									<c:when test="${requestScope.isLike eq 'n' }">
 										<!-- <span id="like-btn" class="btn-lg glyphicon glyphicon-heart-empty"></span> -->
-										<img src="./image/like.png" id="like-btn" class="${contentsDetailView.contentCode}-like" style="cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
-										<img src="./image/liked.png" id="like-btn" class="${contentsDetailView.contentCode}-liked" style="display:none;cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
+										<img src="/resources/image/like.png" id="like-btn" class="${contentsDetailView.contentCode}-like" style="cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
+										<img src="/resources/image/liked.png" id="like-btn" class="${contentsDetailView.contentCode}-liked" style="display:none;cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
 									</c:when>
 									<c:otherwise>
 										<!-- <span id="like-btn" class="btn-lg glyphicon glyphicon-heart"></span> -->
-										<img src="./image/like.png" id="like-btn" class="${contentsDetailView.contentCode}-like" style="display:none;cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
-										<img src="./image/liked.png" id="like-btn" class="${contentsDetailView.contentCode}-liked" style="cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
+										<img src="/resources/image/like.png" id="like-btn" class="${contentsDetailView.contentCode}-like" style="display:none;cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
+										<img src="/resources/image/liked.png" id="like-btn" class="${contentsDetailView.contentCode}-liked" style="cursor: pointer; width: 25px; height: 25px; float: left; margin-top: 9px; margin-left: 5px; margin-right: 10px">
 									</c:otherwise> 
 								</c:choose>
 								<input type="hidden" id="contentsCode" name="contentsCode" value="${contentsDetailView.contentCode }">
@@ -76,11 +76,11 @@
 						
 						<div class="comment-area">
 							<!-- <span id="comment-load-btn" class="btn-lg glyphicon glyphicon-comment"></span> -->
-							 <img src="./image/comment.png" id="comment-load-btn" style="width: 25px; height: 25px; margin-top: 9px; margin-right: 10px">
+							 <img src="/resources/image/comment.png" id="comment-load-btn" style="width: 25px; height: 25px; margin-top: 9px; margin-right: 10px">
 						</div>
 						<div class="retweet-area">
 							<!-- <span class="btn-lg glyphicon glyphicon-retweet"></span> -->
-							<img src="./image/retweet.png" style="width: 33px; height: 33px; margin-top: 5px"> 
+							<img src="/resources/image/retweet.png" style="width: 33px; height: 33px; margin-top: 5px"> 
 						</div>
 						<div class="likeContent">좋아요<span class="likeCnt">${contentsDetailView.likeCnt}</span></div>
 					</div>

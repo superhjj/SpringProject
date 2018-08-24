@@ -25,28 +25,30 @@ public class FollowInsertController {
 //	public String followInsert(@RequestParam("followId") String followId,@RequestParam("memberId") String followerId) {
 //
 //		if(followService.followAdd(followId, followerId)) {
-//			logger.info("ÆÈ·Î¿ì ¼º°ø");
+//			logger.info("ï¿½È·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 //			return "/userpeed";
 //		}
 //		else {
-//			logger.info("ÆÈ·Î¿ì ½ÇÆÐ");
+//			logger.info("ï¿½È·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 //		}
 //		
 //		return null;
 //	}
 	
 	
-	@RequestMapping(value="/followInsert.do", method=RequestMethod.GET)
+	@RequestMapping(value="/followInsert.do", method=RequestMethod.POST)
 	public String followInsert(@RequestParam("followId") String followId, HttpSession session) {
 		String followerId=(String)session.getAttribute("memberId");
 		
+		logger.info("followInsert call");
+		
 		if(followService.followAdd(followId, followerId)) {
-			logger.info("ÆÈ·Î¿ì ¼º°ø");
+			logger.info("ï¿½È·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			
 			return "/userpeed";
 		}
 		else {
-			logger.info("ÆÈ·Î¿ì ½ÇÆÐ");
+			logger.info("ï¿½È·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 		
 		return null;

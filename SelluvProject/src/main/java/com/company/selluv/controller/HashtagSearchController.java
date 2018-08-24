@@ -39,6 +39,11 @@ public class HashtagSearchController {
 			hashtagpeeds.add(mainPeedViewVO);
 		}
 		
+		logger.info("size : " + hashtagpeeds.size());
+		for(MainPeedViewVO elem : hashtagpeeds) {
+			logger.info(elem.toString());
+		}
+		
 		model.addAttribute("hashtagpeeds", hashtagpeeds);
 		
 		return "mainpeed";

@@ -19,17 +19,17 @@ private static final Logger logger = LoggerFactory.getLogger(FollowInsertControl
 	@Autowired
 	private FollowService followService;
 	
-	@RequestMapping(value="/followDelete.do", method=RequestMethod.GET)
+	@RequestMapping(value="/followDelete.do", method=RequestMethod.POST)
 	public String followDelete(@RequestParam("followId") String followId, HttpSession session) {
 		String followerId=(String)session.getAttribute("memberId");
 		
 		if(followService.followDelete(followId, followerId)) {
-			logger.info("ÆÈ·Î¿ì ¼º°ø");
+			logger.info("ï¿½È·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			
 			return "/userpeed";
 		}
 		else {
-			logger.info("ÆÈ·Î¿ì ½ÇÆÐ");
+			logger.info("ï¿½È·Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 		
 		return null;

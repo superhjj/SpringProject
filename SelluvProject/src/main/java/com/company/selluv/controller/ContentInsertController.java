@@ -1,12 +1,14 @@
 package com.company.selluv.controller;
 
+import java.io.File;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,54 +22,67 @@ import com.company.selluv.service.ContentService;
 @Controller
 public class ContentInsertController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ContentInsertController.class);
-	
-	@Autowired
-	ContentService service;
-	
-//	@RequestMapping(value="/contentInsert2.do", method=RequestMethod.GET)
-//	public String contentInsert() {
-//		return "/addcontents";
-//	}
-	
-	@RequestMapping(value="/contentsInsert.do", method=RequestMethod.POST)
-	public String contentInsert(@RequestPart("addcontents_img") MultipartFile file, @RequestParam("addcontents_text") String contentText, 
-			HttpSession session, RedirectAttributes redirectAttributes) 
-	{
-		
-		//∞Ê∑Œ πŸ≤Ÿ±‚
-		//C:\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\Selluv\resources\image
-		String path="C:\\Users\\user\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Selluv_hyemin\\resources\\image\\content\\";
-		//String memberId = (String)session.getAttribute("memberId");
-		String memberId = "id9";
-		String contentImg = null;
-		try {
-		 contentImg = file.getOriginalFilename();
-		// path = path + contentImg;
-		}
-		catch(Exception e) {
-			logger.error("contentInsert : ªÁ¡¯  ¿–æÓø¿±‚ ø¿∑˘");
-	         e.printStackTrace();
-		}
-		//String newFilename = uploadFile(file.getOriginalFilename(),file.getBytes(),vo.getWriter());
-	
-	      ContentDTO dto;
-	      if(contentText == null || contentText.length() == 0) {
-	    	  dto = service.contentAddImgNoneContext(contentImg, memberId);
-	      }
-	      
-	      else {
-	         dto = service.contentAddImg(contentText, contentImg, memberId);
-	      }
-	      
-	      if(dto != null) {
-	    	logger.info("contentInsert : ƒ¡≈Ÿ√˜ µÓ∑œ º∫∞¯");
-	    	redirectAttributes.addAttribute("job","searchContentList");
-	    	redirectAttributes.addAttribute("id", memberId);
-	    	return "redirect:userPeedView.do";
-	      }
-	      logger.info("contentInsert : ƒ¡≈Ÿ√˜ µÓ∑œ Ω«∆–");
-	      
-		return null;//≈Õ¡¸!!
-	}
+   private static final Logger logger = LoggerFactory.getLogger(ContentInsertController.class);
+   
+   @Autowired
+   ContentService service;
+   
+//   @RequestMapping(value="/contentInsert2.do", method=RequestMethod.GET)
+//   public String contentInsert() {
+//      return "/addcontents";
+//   }
+   
+   @RequestMapping(value="/addcontents", method=RequestMethod.GET)
+   public String addContents()
+   {
+	   return "addcontents";
+   }
+   
+   
+   @RequestMapping(value="/contentsInsert.do", method=RequestMethod.POST)
+   public String contentInsert(@RequestPart("addcontents_img") MultipartFile file, @RequestParam("addcontents_text") String contentText, 
+         HttpSession session, RedirectAttributes redirectAttributes) throws Exception
+   {
+      
+      //Í≤ΩÎ°ú Î∞îÍæ∏Í∏∞
+      //C:\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\Selluv\resources\image
+      String path="C:\\Users\\HYH\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\Selluv\\resources\\image\\content\\";
+      String memberId = (String)session.getAttribute("memberId");
+      //String memberId = "id9";
+      String contentImg = null;
+      try {
+       contentImg = file.getOriginalFilename();
+      }
+      catch(Exception e) {
+         logger.error("contentInsert : ÏÇ¨ÏßÑ  ÏùΩÏñ¥Ïò§Í∏∞ Ïò§Î•ò");
+            e.printStackTrace();
+      }
+      
+      File dir = new File(path);
+      
+      if(!dir.exists()) {
+         dir.mkdirs();
+      }
+      File target = new File(dir, contentImg);
+      FileCopyUtils.copy(file.getBytes(), target);
+      
+         ContentDTO dto;
+         if(contentText == null || contentText.length() == 0) {
+            dto = service.contentAddImgNoneContext(contentImg, memberId);
+         }
+         
+         else {
+            dto = service.contentAddImg(contentText, contentImg, memberId);
+         }
+         
+         if(dto != null) {
+          logger.info("contentInsert : Ïª®ÌÖêÏ∏† Îì±Î°ù ÏÑ±Í≥µ");
+          redirectAttributes.addAttribute("job","searchContentList");
+          redirectAttributes.addAttribute("id", memberId);
+          return "redirect:userPeedView.do";
+         }
+         logger.info("contentInsert : Ïª®ÌÖêÏ∏† Îì±Î°ù Ïã§Ìå®");
+         
+      return null;//ÌÑ∞Ïßê!!
+   }
 }

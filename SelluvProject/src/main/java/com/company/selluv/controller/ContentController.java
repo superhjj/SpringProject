@@ -27,7 +27,7 @@ public class ContentController {
 	@Autowired
 	ContentsDetailViewService contentsDetailService;
 	
-	@RequestMapping(value="/detailContents.do", method=RequestMethod.GET)
+	@RequestMapping(value="/detailContents.do", method=RequestMethod.POST)
 	public String contentsDetailViewSearch(@RequestParam("contentNum") String contentCode, @RequestParam("idNum") String memberId, Model model) {
 		ContentsDetailViewVO contentsDetailView = contentsDetailService.contentsDetailViewSearch(memberId, contentCode);
 		
@@ -51,6 +51,6 @@ public class ContentController {
 		model.addAttribute("contentsDetailView", contentsDetailView);
 		model.addAttribute("hashtag", hashtag);
 		
-		return "/content/detailContent";
+		return "detailContents";
 	}
 }

@@ -41,6 +41,8 @@ $(document).ready(function(){
    			  $(formList).attr('class','contents-area-inner');
    			  var str = '';
    			  
+   			  var mem_id = document.getElementById('mem-id').value;
+   			  
    			  console.log(list);
    			  console.log('list[0].peed_id : ' + list[0].peed_id);
    			  console.log('list[0].member_id : ' + list[0].member_id);
@@ -65,7 +67,7 @@ $(document).ready(function(){
    			  else {
    				  console.log('아이디가 다름');
    				  for(var i = 0; i < list.length; i++) {
-   					  str += '<div class=\"userpeed-forms col-md-4\"><span class=\'form-item\'> <a href=orderSheetSearch.do/'+list[i].form_code+'/'+list[i].peed_id+'>' + list[i].form_title + '</a></span></div>';
+   					  str += '<div class=\"userpeed-forms col-md-4\"><span class=\'form-item\'> <a href=orderSheetSearch.do/' + list[i].peed_id + '/' + list[i].form_code +'>' + list[i].form_title + '</a></span></div>';
    				  }
    				/*  alert('test'+list[167].peed_id);*/
    			  
@@ -172,7 +174,7 @@ $(document).ready(function(){
 	               
 	               $.ajax({
 		 	              type : "POST",
-		 	              url : "followSearch.do",
+		 	              url : "followDelete.do",
 		 	              data: followId,
 		 	              error : function(){
 		 	                  alert('통신실패!!');
@@ -200,13 +202,13 @@ $(document).ready(function(){
 		               
 		               $.ajax({
 			 	              type : "POST",
-			 	              url : "followSearch.do",
+			 	              url : "followInsert.do",
 			 	              data: followId,
 			 	              error : function(){
 			 	                  alert('통신실패!!');
 			 	              },
 			 	              success : function(data){
-			 	                // alert(data);
+			 	            	  
 			 	              }
 			 	          });   
 	               
