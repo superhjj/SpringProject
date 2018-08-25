@@ -28,7 +28,7 @@
 						value="2018-07-20" id="end-date-input" name="formEndDate">
 				</div>
 				<div class="col-sm-2 isopen-area">
-					<input class="form-check-input" type="checkbox" id="isopen-check" value="no" name="periodFlag">
+					<input class="form-check-input" type="checkbox" id="isopen-check" value="N" name="periodFlag">
 					<label>기간 설정</label>
 				</div>
 			</div>

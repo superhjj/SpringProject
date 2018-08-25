@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.company.selluv.domain.dto.FormDTO;
+import com.company.selluv.domain.vo.ItemVO;
 import com.company.selluv.persistence.FormMapper;
 
 @Service
@@ -46,8 +47,8 @@ public class FormServiceImpl implements FormService {
 	}
 	
 	public void addFormFile(String formCode, String memberId, String formHtml){
-		//ÇØ´ç ÄÄÇ»ÅÍ ¸ÞÅ¸µ¥ÀÌÅÍ °æ·Î·Î ¹Ù²ã ÁÖ¾î¾ß ÇÔ
-		String filePath = "C:\\sts-bundle\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Selluv\\form\\"+memberId+"\\"+formCode;
+		//ï¿½Ø´ï¿½ ï¿½ï¿½Ç»ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î·ï¿½ ï¿½Ù²ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½
+		String filePath = "C:\\Users\\HYH\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\Selluv\\WEB-INF\\views\\form\\"+memberId+"\\"+formCode;
 		String basicHtml = "<%@ page language=\"java\" contentType=\"text/html; charset=UTF-8\" pageEncoding=\"UTF-8\"%>";
 		String basic2 = "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">";
 		String startHtml="<html><head></head><body>";
@@ -81,8 +82,45 @@ public class FormServiceImpl implements FormService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
+	}
+	
+	public void addFormFileForApp(String formCode, String memberId, List<ItemVO> itemList) {
+		String filePath = "C:\\Users\\HYH\\Documents\\workspace-sts-3.9.5.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\Selluv\\resources\\form\\"+memberId+"\\"+formCode;
+		File f = new File(filePath);
+		if (!f.exists()) {
+			f.mkdirs();
+		}
+		try {
+			FileOutputStream output = new FileOutputStream(filePath + "\\" + formCode + ".txt");
+			OutputStreamWriter osw;
+			try {
+				osw = new OutputStreamWriter(output, "UTF-8");
+				BufferedWriter bw = new BufferedWriter(osw);
+				for (ItemVO item : itemList) {
+					bw.write(item.getItemNum() + "/");
+					bw.write(item.getItemTitle() + "/");
+					bw.write(item.getItemDescript() + "/");
+					bw.write(item.getItemNecessry()+"/");
+					if(item.getOptions() == ""){
+						bw.write(item.getItemType());	
+					}
+					else{
+						bw.write(item.getItemType() + "/");
+					}
+					bw.write(item.getOptions());
+					bw.newLine();
+				}
+				bw.close();
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	 
 	@Override
@@ -91,7 +129,7 @@ public class FormServiceImpl implements FormService {
 		formNum = max_fn();
 		String formCode = this.generateFormCode();
 		
-/*		//ºó µî·ÏÇÏ±â!
+/*		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½!
 		@Autowired*/
 		
 		
@@ -103,7 +141,7 @@ public class FormServiceImpl implements FormService {
 			dto.setFormTitle(formTitle);
 			dto.setFormContent(formContent);
 			dto.setMemberId(memberId);
-			dto.setPeriod_flag(period_flag);
+			dto.setPeriodFlag(period_flag);
 			dto.setFormStartDate(formStartDate);
 			dto.setFormEndDate(formEndDate);
 			addFormFile(formCode, memberId, formHtml);
@@ -116,6 +154,37 @@ public class FormServiceImpl implements FormService {
 		
 		return null;
 		// TODO Auto-generated method stub		
+	}
+	
+	@Override
+	public String addForm(String formTitle, String formContent, String memberId, String period_flag, Date formStartDate,
+			Date formEndDate, String formHtml, List<ItemVO> itemList) {
+		formNum = max_fn();
+		String formCode = this.generateFormCode();
+		
+/*		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½!
+		@Autowired*/
+		try {
+			mapper.formInsert(formCode, formTitle, formContent, memberId, period_flag, (java.sql.Date)formStartDate, (java.sql.Date)formEndDate);	
+			FormDTO dto = null;
+			/*dto = new FormDTO();
+			dto.setFormCode(formCode);
+			dto.setFormTitle(formTitle);
+			dto.setFormContent(formContent);
+			dto.setMemberId(memberId);
+			dto.setPeriodFlag(period_flag);
+			dto.setFormStartDate(formStartDate);
+			dto.setFormEndDate(formEndDate);*/
+			addFormFile(formCode, memberId, formHtml);
+			addFormFileForApp(formCode, memberId, itemList);
+			return formCode;
+		}
+		catch(Exception e) {
+			logger.error("addForm insert error");
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	private String generateFormCode() {

@@ -32,5 +32,10 @@ public class OrderSheetSearchController {
 		return "orderSheet";
 	}
 	
+	@RequestMapping(value="/loadOrderSheet/{memberId}/{formCode}", method=RequestMethod.POST)
+	public String loadorderSheet(@PathVariable String memberId, @PathVariable String formCode) {
+		logger.info("test2");
+		return "/form/"+memberId+"/"+formCode+"/"+formCode;
+	}
 	
 }

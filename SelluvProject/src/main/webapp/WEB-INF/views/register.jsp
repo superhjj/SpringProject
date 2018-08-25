@@ -56,8 +56,6 @@
 	</form>
 	<div class="move_login"><a href="login.jsp">로그인</a></div>
 	</div>
-
 </div>
-
 </body>
 </html>
