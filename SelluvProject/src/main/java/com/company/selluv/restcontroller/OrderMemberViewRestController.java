@@ -1,4 +1,4 @@
-package com.company.selluv.restcontroller;
+	package com.company.selluv.restcontroller;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class OrderMemberViewRestController {
 	@Autowired
 	private OrderMemberViewService service;
 	
-	@RequestMapping(value="/m.orderSheetSearch")
+	@RequestMapping(value="/m.orderMemberView")
 	public List<OrderMemberViewVO> orderSheetSearch(@RequestParam("form_code")String form_code, Model model) {
 		
 		List<OrderMemberViewVO> list = service.orderMemberViewSearch(form_code);
