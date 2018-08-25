@@ -48,14 +48,14 @@ $(document).ready(function(){
    			  console.log('list[0].member_id : ' + list[0].member_id);
    			  if(list[0].peed_id == myId && list[0].member_id == undefined && list.length == 1){
    				  console.log('id : ' + id);
-   				  str += '<div class=\'col-md-4 userpeed-forms\'><span class=\'add-form-btn\'><a href=\'form.jsp\' class=\'form-add\'> + </a></span></div>';
+   				  str += '<div class=\'col-md-4 userpeed-forms\'><span class=\'add-form-btn\'><a href=\'form\' class=\'form-add\'> + </a></span></div>';
    				  
    				  formList.innerHTML = str;
    				  document.getElementById('user-contents').prepend(formList);
    			  }
    			  else if(list[0].member_id == id){
    				  console.log('아이디가 같음');
-   				  str += '<div class=\'col-md-4 userpeed-forms\'><span class=\'add-form-btn\'><a href=\'form.jsp\' class=\'form-add\'> + </a></span></div>';
+   				  str += '<div class=\'col-md-4 userpeed-forms\'><span class=\'add-form-btn\'><a href=\'form\' class=\'form-add\'> + </a></span></div>';
    			  
    				  for(var i = 0; i < list.length; i++) {
    					  str += '<div class=\"col-md-4 userpeed-forms\"><span class=\'form-item\'><a href=orderMemberView.do?form_code=' + list[i].form_code + '>' + list[i].form_title + '</a></span></div>';

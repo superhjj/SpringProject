@@ -10,12 +10,12 @@
 		<id property="formTitle" column="form_title" jdbcType="VARCHAR" />
 		<id property="formContent" column="form_content" jdbcType="VARCHAR" />
 		<id property="memberId" column="member_id" jdbcType="VARCHAR" />
-		<id property="period_flag" column="period_flag" />
+		<id property="periodFlag" column="period_flag" />
 		<id property="formStartDate" column="form_start_date" />
 		<id property="formEndDate" column="form_end_date"/>
 	</resultMap>
 	<insert id="formInsert">
-		INSERT INTO form_tb VALUES(#{formCode},#{formTitle},#{formContent},#{memberId},#{period_flag},#{formStartDate},#{formEndDate})
+		INSERT INTO form_tb VALUES(#{formCode},#{formTitle},#{formContent},#{memberId},#{periodFlag},#{formStartDate},#{formEndDate})
 	</insert>
 	<select id="searchForm" resultMap="form">
 		SELECT * FROM form_tb WHERE form_code=#{formCode} AND member_id=#{memberId}

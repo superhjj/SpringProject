@@ -7,52 +7,45 @@ public class FormDTO {
 	private String formTitle;
 	private String formContent;
 	private String memberId;
-	//boolean -> StringÀ¸·Î °íÄ§!!
-	private String period_flag;
+	//boolean -> Stringï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä§!!
+	private String periodFlag;
 	private Date formStartDate;
 	private Date formEndDate;
 	
 	public FormDTO() { }
 
-	public FormDTO(String formCode, String formTitle, String formContent, String memberId, String period_flag,
+	public FormDTO(String formCode, String formTitle, String formContent, String memberId, String periodFlag,
 			Date formStartDate, Date formEndDate) {
 		super();
 		this.formCode = formCode;
 		this.formTitle = formTitle;
 		this.formContent = formContent;
 		this.memberId = memberId;
-		this.period_flag = period_flag;
+		this.periodFlag = periodFlag;
 		this.formStartDate = formStartDate;
 		this.formEndDate = formEndDate;
 	}
 
-	public FormDTO(String formCode, String formTitle, String formContent, String memberId, String period_flag) {
+	public FormDTO(String formTitle, String formContent, String memberId, String periodFlag,
+			Date formStartDate, Date formEndDate) {
 		super();
-		this.formCode = formCode;
 		this.formTitle = formTitle;
 		this.formContent = formContent;
 		this.memberId = memberId;
-		this.period_flag = period_flag;
-	}
-
-	public FormDTO(String formCode, String formTitle, String memberId, String period_flag, Date formStartDate,
-			Date formEndDate) {
-		super();
-		this.formCode = formCode;
-		this.formTitle = formTitle;
-		this.memberId = memberId;
-		this.period_flag = period_flag;
+		this.periodFlag = periodFlag;
 		this.formStartDate = formStartDate;
 		this.formEndDate = formEndDate;
 	}
-
-	public FormDTO(String formCode, String formTitle, String memberId, String period_flag) {
+	
+	public FormDTO(String formTitle, String formContent, String memberId, String periodFlag) {
 		super();
-		this.formCode = formCode;
 		this.formTitle = formTitle;
+		this.formContent = formContent;
 		this.memberId = memberId;
-		this.period_flag = period_flag;
+		this.periodFlag = periodFlag;
 	}
+
+
 
 	public String getFormCode() {
 		return formCode;
@@ -86,12 +79,8 @@ public class FormDTO {
 		this.memberId = memberId;
 	}
 
-	public String isPeriod_flag() {
-		return period_flag;
-	}
-
-	public void setPeriod_flag(String period_flag) {
-		this.period_flag = period_flag;
+	public void setperiodFlag(String periodFlag) {
+		this.periodFlag = periodFlag;
 	}
 
 	public Date getFormStartDate() {
@@ -110,10 +99,18 @@ public class FormDTO {
 		this.formEndDate = formEndDate;
 	}
 
+	public String getPeriodFlag() {
+		return periodFlag;
+	}
+
+	public void setPeriodFlag(String periodFlag) {
+		this.periodFlag = periodFlag;
+	}
+
 	@Override
 	public String toString() {
 		return "FormDTO [formCode=" + formCode + ", formTitle=" + formTitle + ", formContent=" + formContent
-				+ ", memberId=" + memberId + ", period_flag=" + period_flag + ", formStartDate=" + formStartDate
+				+ ", memberId=" + memberId + ", periodFlag=" + periodFlag + ", formStartDate=" + formStartDate
 				+ ", formEndDate=" + formEndDate + "]";
 	}
 

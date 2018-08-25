@@ -20,7 +20,7 @@
 
 		//alert("test");
 		$.ajax({
-			url : 'form/'+'${requestScope.memberId}'+'/'+'${requestScope.formCode}'+'/'+'${requestScope.formCode}'+'.jsp',
+			url : '/loadOrderSheet/'+'${requestScope.memberId}'+'/'+'${requestScope.formCode}',
 			type : 'POST',
 			datatype : "html",
 			contentType: 'text/html; charset=UTF-8',
@@ -131,8 +131,8 @@ display:none;
 </div>
    <input type="hidden" id="itemInsert" name="itemInsert">
    <input type="hidden" id="titleInsert" name="titleInsert">
-   <input type="hidden" name="formCode" value="${requestScope.formCode }">
-   <input tyep="hidden" name="memberId" value="${requestScope.memberId }">
+   <input type="hidden" name="formCode" value="${formCode }">
+   <input tyep="hidden" name="memberId" value="${memberId }">
 </form>
 </body>
 </html>
