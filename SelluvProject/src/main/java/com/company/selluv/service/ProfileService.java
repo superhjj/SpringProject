@@ -9,6 +9,8 @@ public interface ProfileService {
 	
 	public ProfileDTO profileDelete(String memberId);
 	
+	public ProfileDTO profileUpdate(String memberId, String profileIntro, String profileImg, String profileWebsite);
+	
 	public ProfileDTO profileImgUpdate(String memberId, String profileImg);
 	
 	public ProfileDTO profileIntroUpdate(String memberId, String profileIntro);
